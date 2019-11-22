@@ -74,7 +74,12 @@ public class DoorController {
 	@RequestMapping("/doorDelete")
 	public String doorDelete(Integer id) {
 		// 调用dao层的deleteById方法删除指定ID的门店信息
-		dao.deleteById(id);
+		try {
+			dao.deleteById(id);
+		} catch (Exception e) {
+			// 删除失败跳转页面
+			return "door_Erro";
+		}
 		// 重定向到门店列表页面，显示所有门店信息
 		return "redirect:/doorList";
 	}

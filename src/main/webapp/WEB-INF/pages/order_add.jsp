@@ -29,7 +29,9 @@
 			<td width="30%">所属门店</td>
 			<td>
 				<select name="doorId">
-					<option value="">永和大王(北三环西路店)</option>
+				<c:forEach items="${ dlist }" var="door">
+					<option value="${ door.id }">${ door.name }</option>
+				</c:forEach>
 				</select>
 			</td>
 		</tr>
@@ -42,8 +44,11 @@
 		<tr>
 			<td>订单类型</td>
 			<td>
-				<input type="text" name="orderType" 
-						value="堂食"/>
+				<select name="orderType">
+					<option>堂食</option>
+					<option>打包</option>
+					<option>外卖</option>
+				</select>
 			</td>
 		</tr>
 		<tr>
@@ -62,9 +67,12 @@
 		<tr>
 			<td>支付方式</td>
 			<td>
-				<input type="text" name="payType"
-						value="微支付"/>
-				
+				<select name="payType">
+					<option>微信支付</option>
+					<option>支付宝</option>
+					<option>现金</option>
+					<option>银行卡</option>
+				</select>
 			</td>
 		</tr>
 		<tr>
